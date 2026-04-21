@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('id_cards', function (Blueprint $table) {
             $table->id();
             $table->foreignId('employee_id')->constrained()->cascadeOnDelete();
-            $table->integer('card_number');
-            $table->integer('issue_date');
+            $table->string('card_number');
+            $table->date('issue_date');
             $table->timestamps();
         });
     }
@@ -25,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('id_cards');
+        Schema::dropIfExists('id_cards'); 
     }
 };
